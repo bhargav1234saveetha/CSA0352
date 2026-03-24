@@ -1,0 +1,18 @@
+#include <stdio.h>
+int s[5], top = -1;
+
+int main() {
+    int n, i, x;
+    scanf("%d",&n);
+
+    for(i=0;i<n;i++){
+        scanf("%d",&x);
+        if(top<4) s[++top]=x;
+    }
+
+    if(top>=0) printf("Top: %d\n", s[top]);
+    if(top>=0) printf("Popped: %d\n", s[top--]);
+    if(top>=0) printf("Top: %d", s[top]);
+
+    return 0;
+}
