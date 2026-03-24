@@ -1,0 +1,22 @@
+#include <stdio.h>
+#include <ctype.h>
+
+char s[50]; int top=-1;
+
+int p(char x){ return (x=='+'||x=='-')?1:(x=='*'||x=='/')?2:0; }
+
+int main(){
+    char e[50]; int i=0;
+    scanf("%s",e);
+
+    while(e[i]){
+        if(isalnum(e[i])) printf("%c",e[i]);
+        else{
+            while(top!=-1 && p(s[top])>=p(e[i]))
+                printf("%c",s[top--]);
+            s[++top]=e[i];
+        }
+        i++;
+    }
+    while(top!=-1) printf("%c",s[top--]);
+}
